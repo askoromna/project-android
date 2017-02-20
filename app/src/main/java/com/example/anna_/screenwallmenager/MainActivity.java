@@ -5,14 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.anna_.screenwallmenager.R.styleable.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    List<Video> videoList = new ArrayList<Video>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_main);
     }
 
 
@@ -51,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
     public void sound(View v) {
 
 
+
+
+
+
     }
 }
+
 

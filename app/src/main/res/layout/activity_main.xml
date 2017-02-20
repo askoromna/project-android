@@ -33,9 +33,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_shuffle"
-            android:id="@+id/imageButton23"
             android:layout_weight="0.61"
             android:onClick="shuffle"
+            android:id="@+id/btn_shuffle"
             />
 
 
@@ -43,64 +43,66 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_stop"
-            android:id="@+id/imageButton28"
             android:layout_weight="0.61"
             android:onClick="stop"
-            />
+            android:id="@+id/btn_stop"
+             />
+
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_bkwd"
-            android:id="@+id/imageButton30"
             android:layout_weight="0.61"
             android:onClick="backward"
+            android:id="@+id/btn_bkwd"
             />
+
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_play"
-            android:id="@+id/imageButton27"
-            android:layout_weight="0.61"
             android:onClick="play"
-            />
+            android:id="@+id/btn_play"
+            android:layout_weight="0.61" />
+
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_pause"
-            android:id="@+id/imageButton8"
-            android:layout_weight="0.61"
             android:onClick="pause"
-            />
+            android:id="@+id/btn_pause"
+            android:layout_weight="0.61" />
+
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_fwd"
-            android:id="@+id/imageButton31"
-            android:layout_weight="0.61"
             android:onClick="forward"
-            />
+            android:id="@+id/btn_fwd"
+            android:layout_weight="0.61" />
+
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_repete"
-            android:id="@+id/imageButton24"
-            android:layout_weight="0.61"
             android:onClick="repeat"
-            />
+            android:id="@+id/btn_repeat"
+            android:layout_weight="0.61" />
+
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btn_sound"
-            android:id="@+id/imageButton25"
-            android:layout_weight="0.61"
             android:onClick="sound"
-            />
+            android:id="@+id/btn_sound"
+            android:layout_weight="0.61" />
+
     </LinearLayout>
 
 </RelativeLayout>
