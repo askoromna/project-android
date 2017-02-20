@@ -16,22 +16,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClickPlay(View v) {
-//        ImageButton btn_play = (ImageButton)findViewById(R.id.btn_play);
-//        ImageButton btn_pause = (ImageButton)findViewById(R.id.btn_pause);
+    public void shuffle(View v) {
 
-        //when play is clicked show pause button and hide play button
-//        int visible = btn_play.getVisibility();
-//        if (visible == 1){
-//            btn_play.setVisibility(v.INVISIBLE);
-//            btn_pause.setVisibility(v.VISIBLE);
-
-        }
-//        if (visible == 0){
-//            btn_play.setVisibility(v.VISIBLE);
-//            btn_pause.setVisibility(v.INVISIBLE);
-//
-//        }
 
     }
+
+
+    public void play(View v) {
+
+
+    }
+
+    public void stop(View v) {
+
+
+    }
+    public void pause(View v) {
+
+
+    }
+
+    public void forward(View v) {
+
+
+    }
+    public void backward(View v) {
+
+
+    }
+    public void repeat(View v) {
+
+
+    }
+    public void sound(View v) {
+
+
+    }
+}
 
