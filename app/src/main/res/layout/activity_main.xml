@@ -12,97 +12,96 @@
     tools:context="com.example.anna_.screenwallmenager.MainActivity">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/button_bar"
-        android:layout_centerVertical="true"
-        android:id="@+id/imageView55" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="9dp"
+        android:layout_marginEnd="9dp">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/imageView55"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="49dp">
+        <LinearLayout
+            android:id="@+id/videos"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
 
-
-        <ImageButton
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_shuffle"
-            android:layout_weight="0.61"
-            android:onClick="shuffle"
-            android:id="@+id/btn_shuffle"
-            />
+            android:layout_below="@+id/videos"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+
+            android:background="@color/ShinyOrange"
+            android:layout_centerHorizontal="true">
 
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_stop"
-            android:layout_weight="0.61"
-            android:onClick="stop"
-            android:id="@+id/btn_stop"
-             />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/shuffle"
+                android:id="@+id/btn_shuffle"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange" />
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/stop"
+                android:id="@+id/btn_stop"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange" />
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_bkwd"
-            android:layout_weight="0.61"
-            android:onClick="backward"
-            android:id="@+id/btn_bkwd"
-            />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/backward"
+                android:id="@+id/btn_backward"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange" />
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/play"
+                android:id="@+id/btn_play"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange" />
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_play"
-            android:onClick="play"
-            android:id="@+id/btn_play"
-            android:layout_weight="0.61" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/forward"
+                android:id="@+id/btn_forward"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange" />
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/repeat"
+                android:id="@+id/btn_repeat"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange" />
+        </LinearLayout>
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_pause"
-            android:onClick="pause"
-            android:id="@+id/btn_pause"
-            android:layout_weight="0.61" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/list"
+            android:layout_below="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_fwd"
-            android:onClick="forward"
-            android:id="@+id/btn_fwd"
-            android:layout_weight="0.61" />
-
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_repete"
-            android:onClick="repeat"
-            android:id="@+id/btn_repeat"
-            android:layout_weight="0.61" />
-
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_sound"
-            android:onClick="sound"
-            android:id="@+id/btn_sound"
-            android:layout_weight="0.61" />
-
-    </LinearLayout>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

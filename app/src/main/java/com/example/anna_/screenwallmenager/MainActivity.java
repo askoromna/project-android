@@ -8,11 +8,10 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.anna_.screenwallmenager.R.styleable.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<Video> videoList = new ArrayList<Video>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void sound(View v) {
-
-
-
-
-
 
     }
 }
