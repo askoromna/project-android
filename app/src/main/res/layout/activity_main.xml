@@ -17,16 +17,78 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="9dp"
-        android:layout_marginEnd="9dp">
+        android:layout_alignParentEnd="true">
 
         <LinearLayout
             android:id="@+id/videos"
             android:orientation="horizontal"
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/video_column_1">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/picture"
+                    android:id="@+id/v11"
+                    android:layout_weight="1"
+                    android:background="@color/MilkyWhite" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/picture"
+                    android:id="@+id/v21"
+                    android:layout_weight="1"
+                    android:background="@color/MilkyWhite" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/picture"
+                    android:id="@+id/v31"
+                    android:layout_weight="1"
+                    android:background="@color/MilkyWhite" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/picture"
+                    android:id="@+id/v41"
+                    android:layout_weight="1"
+                    android:background="@color/MilkyWhite" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/video_column_2"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/v21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/picture" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:id="@+id/buttons"
@@ -102,6 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
     </RelativeLayout>
 
 </RelativeLayout>

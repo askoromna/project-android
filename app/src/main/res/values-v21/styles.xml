@@ -5,5 +5,6 @@
         <item name="android:colorPrimary">@color/ShinyOrange</item>
         <item name="android:colorPrimaryDark">@color/MilkyWhite</item>
         <item name="android:colorAccent">@color/WarmGray</item>
+
     </style>
 </resources>
