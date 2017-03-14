@@ -200,65 +200,92 @@
         </LinearLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/buttons"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ShinyOrange"
             android:layout_below="@+id/videos"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
+            android:background="@color/ShinyOrange">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/shuffle"
-                android:id="@+id/btn_shuffle"
-                android:layout_weight="1"
-                android:background="@color/ShinyOrange" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/stop"
-                android:id="@+id/btn_stop"
-                android:layout_weight="1"
-                android:background="@color/ShinyOrange" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/backward"
                 android:id="@+id/btn_backward"
-                android:layout_weight="1"
-                android:background="@color/ShinyOrange" />
-
-            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/play"
-                android:id="@+id/btn_play"
+
+                android:layout_toLeftOf="@+id/btn_play"
+                android:layout_toStartOf="@+id/btn_play"
                 android:layout_weight="1"
-                android:background="@color/ShinyOrange" />
+                android:background="@color/ShinyOrange"
+                app:srcCompat="@drawable/backward_button_customized" />
+
 
             <ImageButton
+                android:id="@+id/btn_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/forward"
+                android:layout_alignTop="@+id/btn_backward"
+                android:layout_toLeftOf="@+id/btn_backward"
+                android:layout_toStartOf="@+id/btn_backward"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange"
+                app:srcCompat="@drawable/stop_button_customized" />
+
+            <ImageButton
+                android:id="@+id/btn_shuffle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange"
+                app:srcCompat="@drawable/shuffle_button_customized"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageButton
                 android:id="@+id/btn_forward"
-                android:layout_weight="1"
-                android:background="@color/ShinyOrange" />
-
-            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/repeat"
-                android:id="@+id/btn_repeat"
+                android:layout_alignTop="@+id/btn_repeat"
+                android:layout_toEndOf="@+id/btn_play"
+                android:layout_toRightOf="@+id/btn_play"
                 android:layout_weight="1"
-                android:background="@color/ShinyOrange" />
-        </LinearLayout>
+                android:backgroundTintMode="src_over"
+                android:background="@color/ShinyOrange"
+                app:srcCompat="@drawable/forward_button_customized" />
+
+            <ImageButton
+                android:id="@+id/btn_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange"
+                android:backgroundTintMode="add"
+                app:srcCompat="@drawable/play_button_customized" />
+
+            <ImageButton
+                android:id="@+id/btn_repeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/btn_backward"
+                android:layout_toEndOf="@+id/btn_forward"
+                android:layout_toRightOf="@+id/btn_forward"
+                android:layout_weight="1"
+                android:background="@color/ShinyOrange"
+                app:srcCompat="@drawable/repeat_button_customized"
+                />
+
+            <ImageButton
+                android:id="@+id/volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/ShinyOrange"
+                app:srcCompat="@drawable/volume_button_customized"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
 
         <LinearLayout
             android:orientation="horizontal"
