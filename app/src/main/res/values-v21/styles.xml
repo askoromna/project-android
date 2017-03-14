@@ -3,8 +3,11 @@
 
     <style name="Orange" parent="android:Theme.DeviceDefault.Light">
         <item name="android:colorPrimary">@color/ShinyOrange</item>
-        <item name="android:colorPrimaryDark">@color/MilkyWhite</item>
-        <item name="android:colorAccent">@color/WarmGray</item>
+        <item name="android:colorPrimaryDark">@color/WarmGray</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/MilkyWhite</item>
+        <item name="android:statusBarColor">@color/WarmGray</item>
+        <item name="android:textColorPrimaryInverse">@color/MilkyWhite</item>
 
     </style>
 </resources>

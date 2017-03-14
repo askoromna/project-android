@@ -9,6 +9,8 @@
 
     </style>
 
-    <style name="Orange" parent="android:Theme.DeviceDefault.Light" />
+    <style name="Orange" parent="android:Theme.DeviceDefault.Light" >
+        <item name="android:colorBackground">@color/MilkyWhite</item>
+    </style>
 
 </resources>
