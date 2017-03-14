@@ -262,6 +262,7 @@
                 android:layout_weight="1"
                 android:background="@color/ShinyOrange"
                 android:backgroundTintMode="add"
+                android:onClick="playClick"
                 app:srcCompat="@drawable/play_button_customized" />
 
             <ImageButton
