@@ -234,12 +234,13 @@
                 android:id="@+id/btn_shuffle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_weight="1"
                 android:background="@color/ShinyOrange"
-                app:srcCompat="@drawable/shuffle_button_customized"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:onClick="shuffle"
+                app:srcCompat="@drawable/shuffle_button_customized" />
 
             <ImageButton
                 android:id="@+id/btn_forward"
@@ -274,18 +275,19 @@
                 android:layout_toRightOf="@+id/btn_forward"
                 android:layout_weight="1"
                 android:background="@color/ShinyOrange"
-                app:srcCompat="@drawable/repeat_button_customized"
-                />
+                android:onClick="repeat"
+                app:srcCompat="@drawable/repeat_button_customized" />
 
             <ImageButton
                 android:id="@+id/volume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/ShinyOrange"
-                app:srcCompat="@drawable/volume_button_customized"
-                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentTop="true"
+                android:background="@color/ShinyOrange"
+                android:onClick="volume"
+                app:srcCompat="@drawable/volume_button_customized" />
         </RelativeLayout>
 
         <LinearLayout
