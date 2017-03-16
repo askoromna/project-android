@@ -37,7 +37,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v01"
@@ -45,7 +46,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v02"
@@ -53,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v03"
@@ -61,7 +64,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
             </LinearLayout>
 
@@ -77,7 +81,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v12"
@@ -85,7 +90,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v13"
@@ -93,7 +99,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v11"
@@ -101,7 +108,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
             </LinearLayout>
 
             <LinearLayout
@@ -118,7 +126,8 @@
                     android:layout_row="2"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v21"
@@ -128,7 +137,8 @@
                     android:layout_row="2"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v22"
@@ -138,7 +148,8 @@
                     android:layout_row="2"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v23"
@@ -148,7 +159,8 @@
                     android:layout_row="2"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
             </LinearLayout>
 
             <LinearLayout
@@ -165,7 +177,9 @@
                     android:layout_row="3"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:focusableInTouchMode="false"
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v31"
@@ -175,7 +189,9 @@
                     android:layout_row="3"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:focusableInTouchMode="false"
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v32"
@@ -185,7 +201,9 @@
                     android:layout_row="3"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:focusableInTouchMode="false"
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
 
                 <ImageButton
                     android:id="@+id/v33"
@@ -195,16 +213,25 @@
                     android:layout_row="3"
                     android:layout_weight="1"
                     android:background="@color/MilkyWhite"
-                    app:srcCompat="@mipmap/picture" />
+                    android:focusableInTouchMode="false"
+                    android:onClick="select_picture"
+                    app:srcCompat="@drawable/picture" />
             </LinearLayout>
         </LinearLayout>
 
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/videos"
+            android:background="@color/MilkyWhite" />
 
         <RelativeLayout
             android:id="@+id/buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/videos"
+            android:layout_below="@+id/seekBar"
             android:background="@color/ShinyOrange">
 
             <ImageButton
@@ -298,8 +325,10 @@
             android:layout_height="match_parent">
 
             <ListView
+                android:id="@+id/videoList"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:drawSelectorOnTop="false" />
         </LinearLayout>
 
     </RelativeLayout>

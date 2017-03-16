@@ -1,0 +1,31 @@
+{
+	"button": {
+		"play": [{
+			"idv": "scenario",
+			"OnClick": "play",
+			"state": "play",
+			"text": "video plays"
+		}, {
+			"mute": "volume"
+		}],
+
+		"pause": [{
+			"idv": "scenario",
+			"OnClick": "pause",
+			"state": "pause",
+			"text": "video pause"
+		}, {
+			"mute": "volume"
+		}],
+
+		"stop": [{
+			"idv": "scenario",
+			"OnClick": "stop",
+			"state": "stop",
+			"text": "video stop"
+		}, {
+			"mute": 0,
+			"OnClick": "volume"
+		}]
+	}
+}
