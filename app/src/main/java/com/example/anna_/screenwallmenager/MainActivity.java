@@ -9,6 +9,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import static com.example.anna_.screenwallmenager.R.color.LightBlue;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,9 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void select_picture (View v) {
         ImageButton button = (ImageButton)v;
+        TextView label = (TextView)v;
         if (picture_selected) {
 //            button.setBackgroundDrawable(getResources().getDrawable(R.color.ShinyOrange));
             button.setImageResource(R.mipmap.picture);
+//            label.setTextColor(getResources().getDrawable(R.color.LightBlue));
             picture_selected = false;
         }
 

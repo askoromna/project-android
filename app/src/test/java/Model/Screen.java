@@ -10,5 +10,7 @@ import android.view.View;
 
 public class Screen  {
 
+    int row;
+    int col;
 
 }
