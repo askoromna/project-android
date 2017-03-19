@@ -1,18 +1,17 @@
 package com.example.anna_.screenwallmenager;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
-
-import java.util.ArrayList;
-
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.anna_.screenwallmenager.Model.*;
+import  com.example.anna_.screenwallmenager.View.*;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,20 +24,26 @@ public class MainActivity extends AppCompatActivity {
 
     String IdAsString = "";
 
+    Video video = new Video();
+
     private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         createList();
 
+
+        
     }
 
 
     public void createList (){
         ListView myListView = (ListView)findViewById(R.id.videoList);
         ArrayList<String> myStringArray1 = new ArrayList<String>();
+        myStringArray1.add("App created by: Hanna SKOROMNA,  Mohamed Koma CAMARA et Jean Mirabeau KEPATO");
         for (int i=1; i<21; i++){
             myStringArray1.add("Video number:  "+ i);
         }

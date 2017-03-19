@@ -9,4 +9,20 @@
     <color name="ShinyOrange">#ffc400</color>
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="LightBlue">#4dd0e1</color>
+    <color name="color_1">#ffeead</color>
+    <color name="color_2">#96ceb4</color>
+    <color name="color_3">#5b9aa0</color>
+    <color name="color_4">#ffcc5c</color>
+    <color name="color_5">#588c7e</color>
+    <color name="color_6">#f2d694</color>
+    <color name="color_7">#f2ae72</color>
+    <color name="color_8">#d96459</color>
+    <color name="color_9">#ae80b6</color>
+    <color name="color_10">#b2b2b2</color>
+    <color name="color_11">#d5f4e6</color>
+    <color name="color_12">#f7786b</color>
+    <color name="color_13">#d9ad7c</color>
+    <color name="color_14">#8d9db6</color>
+    <color name="color_15">#a2836e</color>
+    <color name="color_16">#c83349</color>
 </resources>
