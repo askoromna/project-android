@@ -27,14 +27,14 @@ public class Video {
 
     public Video(){ //just a little example for demo of behaviour of the app
 
-        this.idv = "video_1";
-        this.state="pause";
-        this.loop = 0;
-        this.mute = 0;
-        this.screen.add(new Screen("s11", "1920x1080", "landscape",  false ));
-        this.screen.add(new Screen("s12", "1920x1080", "landscape",  false));
-        this.screen.add(new Screen("s21", "1920x1080", "landscape",  false ));
-        this.screen.add(new Screen("s22", "1920x1080", "landscape",  false ));
+//        this.idv = "video_1";
+//        this.state="pause";
+//        this.loop = 0;
+//        this.mute = 0;
+//        this.screen.add(new Screen("s11", "1920x1080", "landscape",  false ));
+//        this.screen.add(new Screen("s12", "1920x1080", "landscape",  false));
+//        this.screen.add(new Screen("s21", "1920x1080", "landscape",  false ));
+//        this.screen.add(new Screen("s22", "1920x1080", "landscape",  false ));
 
     }
 

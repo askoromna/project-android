@@ -1,6 +1,7 @@
 package com.example.anna_.screenwallmenager;
 
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +14,9 @@ import android.widget.Toast;
 import com.example.anna_.screenwallmenager.Model.*;
 import  com.example.anna_.screenwallmenager.View.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,23 +25,21 @@ public class MainActivity extends AppCompatActivity {
     boolean repeat = false;
     boolean shuffle = false;
     boolean volume_off = false;
-    boolean picture_selected = false;
 
-    String IdAsString = "";
-
-
+    String selectedPictureTag = "";
 
 
     private ArrayAdapter<String> adapter;
+    private List<Integer> intList = new ArrayList<>(); //list of ints for random  with no duplicates
 
     //DEMO lists of screens for video_1, video_2, video_3
     private List<Screen> screenList1 = new ArrayList<>();
     private List<Screen> screenList2 = new ArrayList<>();
     private List<Screen> screenList3 = new ArrayList<>();
 
-    Video video1 = new Video("v1", "file", 2, 0, 10.5, "pause", 0, screenList1);
-    Video video2 = new Video("v2", "file", 2, 0, 10.5, "pause", 0, screenList2);
-    Video video3 = new Video("v3", "file", 2, 0, 10.5, "pause", 0, screenList3);
+    Video video1 = new Video("v1", "video_file_1.mp4", 2, 0, 10.5, "pause", 0, screenList1);
+    Video video2 = new Video("v2", "video_file_2.mp4", 2, 0, 10.5, "pause", 0, screenList2);
+    Video video3 = new Video("v3", "video_file_3.mp4", 2, 0, 10.5, "pause", 0, screenList3);
 
 
     @Override
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         createList();
-
         fillScreenLists();
         colorVideoBackground();
 
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public void fillScreenLists(){  // demo function for showing the functionality of the app
 
         /// for video_1 (left upper corner of the wall
-        screenList1.add(new Screen("s11", "1920x1080", "landscape",  false ));
+        screenList1.add(new Screen("s11", "1920x1080", "landscape",  false));
         screenList1.add(new Screen("s12", "1920x1080", "landscape",  false));
         screenList1.add(new Screen("s21", "1920x1080", "landscape",  false ));
         screenList1.add(new Screen("s22", "1920x1080", "landscape",  false ));
@@ -78,51 +77,49 @@ public class MainActivity extends AppCompatActivity {
         screenList3.add(new Screen("s34", "1920x1080", "landscape",  false));
         screenList3.add(new Screen("s43", "1920x1080", "landscape",  false ));
         screenList3.add(new Screen("s44", "1920x1080", "landscape",  false ));
-
     }
 
     public void colorVideoBackground(){
+
+        for (int i=1; i<17; i++){
+            intList.add(i);
+        }
+        Collections.shuffle(intList);   //shuffling list of ints to get the random no-duplicate color
         int view_id = 0, view_id_2 =0;
         int color_id;
         View v1, v2 ;
-        Random random = new Random();
-        int ran = random.nextInt(16) + 1 ;
+
         for(Screen s: video1.getScreen()){
             view_id = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
             v1 = findViewById(view_id);
             view_id_2 = getResources().getIdentifier("label_" + s.getIds(), "id", MainActivity.this.getPackageName());
             v2 = findViewById(view_id_2);
 
-            color_id = getResources().getIdentifier("color_"+ran, "color", MainActivity.this.getPackageName());
+            color_id = getResources().getIdentifier("color_"+intList.get(0), "color", MainActivity.this.getPackageName());
             v1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
             v2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
-
         }
 
-        ran = random.nextInt(16) + 1 ;
         for(Screen s: video2.getScreen()){
             view_id = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
             v1 = findViewById(view_id);
             view_id_2 = getResources().getIdentifier("label_" + s.getIds(), "id", MainActivity.this.getPackageName());
             v2 = findViewById(view_id_2);
 
-            color_id = getResources().getIdentifier("color_"+ran, "color", MainActivity.this.getPackageName());
+            color_id = getResources().getIdentifier("color_"+intList.get(1), "color", MainActivity.this.getPackageName());
             v1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
             v2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
-
         }
 
-        ran = random.nextInt(16) + 1 ;
         for(Screen s: video3.getScreen()){
             view_id = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
             v1 = findViewById(view_id);
             view_id_2 = getResources().getIdentifier("label_" + s.getIds(), "id", MainActivity.this.getPackageName());
             v2 = findViewById(view_id_2);
 
-            color_id = getResources().getIdentifier("color_"+ran, "color", MainActivity.this.getPackageName());
+            color_id = getResources().getIdentifier("color_"+intList.get(3), "color", MainActivity.this.getPackageName());
             v1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
             v2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
-
         }
     }
 
@@ -133,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i=1; i<21; i++){
             myStringArray1.add("Video number:  "+ i);
         }
-        adapter = new ArrayAdapter<String>(this,
+        adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, myStringArray1);
 
         myListView.setAdapter(adapter);
@@ -141,27 +138,57 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void select_picture (View v) {
-        ImageButton button = (ImageButton)v;
+        ImageButton button = (ImageButton)findViewById(v.getId());
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
+        Screen screen = new Screen();
+        Video video = new Video();
+        selectedPictureTag = (String)button.getTag();
 
-        String tag = button.getTag().toString();
-//        IdAsString = button.getResources().getResourceName(button.getId());
-        IdAsString = tag;
-        Toast toast = Toast.makeText(context, "", duration);
-
-        if (picture_selected) {
-//            button.setBackgroundDrawable(getResources().getDrawable(R.color.ShinyOrange));
-            button.setImageResource(R.mipmap.picture);
-//            label.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.LightBlue));
-            picture_selected = false;
-           toast = Toast.makeText(context, R.string.v_unselected, duration);
+        for (Screen s: screenList1){    //loops to search Screen and Video objects by selected picture
+            if (s.getIds().equals(selectedPictureTag)){
+                screen = s;
+                video = video1;
+            }
         }
 
-        else if (!picture_selected) {
-            button.setImageResource(R.mipmap.picture_selected);
-            picture_selected = true;
-            toast = Toast.makeText(context, R.string.v_selected, duration);
+        for (Screen s: screenList2){
+            if (s.getIds().equals(selectedPictureTag)){
+                screen = s;
+                video = video2;
+            }
+        }
+
+        for (Screen s: screenList3){
+            if (s.getIds().equals(selectedPictureTag)){
+                screen = s;
+                video = video3;
+            }
+        }
+
+        Toast toast = Toast.makeText(context, "", duration);
+
+        if (screen.getSelected()) {
+//            button.setImageResource(R.mipmap.picture);
+            for (Screen s: video.getScreen()){
+                int id  = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
+                button = (ImageButton)findViewById(id);
+                button.setImageResource(R.mipmap.picture);
+                s.setSelected(false);
+            }
+            toast = Toast.makeText(context, "Video "+ selectedPictureTag + R.string.v_unselected, duration);
+        }
+
+        else if (!screen.getSelected()) {
+//            button.setImageResource(R.mipmap.picture_selected);
+            for (Screen s: video.getScreen()) {
+                int id  = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
+                button = (ImageButton)findViewById(id);
+                button.setImageResource(R.mipmap.picture_selected);
+                s.setSelected(true);
+
+            }
+            toast = Toast.makeText(context, "Video " + selectedPictureTag + R.string.v_selected, duration);
         }
 
         toast.show();
@@ -183,7 +210,6 @@ public class MainActivity extends AppCompatActivity {
             toast = Toast.makeText(getApplicationContext(), R.string.list_shuffled, Toast.LENGTH_SHORT);
         }
 
-
         toast.show();
     }
 
@@ -194,13 +220,13 @@ public class MainActivity extends AppCompatActivity {
         if (paused) {
             button.setImageResource(R.drawable.pause_button_customized);
             paused = false;
-            toast = Toast.makeText(getApplicationContext(), R.string.v_play, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), "Video "+ selectedPictureTag+ R.string.v_play, Toast.LENGTH_SHORT);
         }
 
         else if (!paused) {
             button.setImageResource(R.drawable.play_button_customized);
             paused = true;
-            toast = Toast.makeText(getApplicationContext(), R.string.v_paused, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), "Video " + selectedPictureTag + R.string.v_paused, Toast.LENGTH_SHORT);
         }
 
         toast.show();
@@ -213,13 +239,13 @@ public class MainActivity extends AppCompatActivity {
         if (repeat) {
             button.setImageResource(R.mipmap.repeat);
             repeat = false;
-            toast = Toast.makeText(getApplicationContext(),  R.string.v_repeat_not, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(),  R.string.v_repeat_not + selectedPictureTag, Toast.LENGTH_SHORT);
         }
 
         else if (!repeat) {
             button.setImageResource(R.mipmap.repeat_pressed);
             repeat = true;
-            toast = Toast.makeText(getApplicationContext(),R.string.v_repeat, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(),"Video" + selectedPictureTag+  R.string.v_repeat, Toast.LENGTH_SHORT);
         }
 
         toast.show();
@@ -233,24 +259,24 @@ public class MainActivity extends AppCompatActivity {
         if (volume_off) {
             button.setImageResource(R.drawable.volume_button_customized);
             volume_off = false;
-            toast = Toast.makeText(getApplicationContext(),  R.string.v_unmuted, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), "Video"+ selectedPictureTag+ R.string.v_unmuted, Toast.LENGTH_SHORT);
         }
         else if (!volume_off) {
             button.setImageResource(R.drawable.volume_off_button_customized);
             volume_off = true;
-            toast = Toast.makeText(getApplicationContext(), R.string.v_muted, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), "Video"+selectedPictureTag+ R.string.v_muted, Toast.LENGTH_SHORT);
         }
         toast.show();
     }
 
 
     public void stop(View v) {
-        Toast toast = Toast.makeText(getApplicationContext(), R.string.v_stopped, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), "Video" + selectedPictureTag+  R.string.v_stopped, Toast.LENGTH_SHORT);
         toast.show();
     }
 
     public void pause(View v) {
-        Toast toast = Toast.makeText(getApplicationContext(),  R.string.v_paused, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(),  "Video" +selectedPictureTag + R.string.v_paused, Toast.LENGTH_SHORT);
         toast.show();
     }
 

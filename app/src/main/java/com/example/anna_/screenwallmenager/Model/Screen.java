@@ -11,6 +11,7 @@ public class Screen  {
     private String orientation;
     private boolean tactile;
     private boolean selected;
+    private String viewTag;
 
     public Screen (){
         this.ids = "";
@@ -65,6 +66,22 @@ public class Screen  {
 
         this.tactile = tac;
 
+    }
+
+
+    public void setSelected(boolean selected){
+        this.selected = selected;
+}
+    public boolean getSelected (){
+        return this.selected;
+    }
+
+    public void setViewTag(String tag){
+        this.viewTag = tag;
+    }
+
+    public String getViewTag(){
+        return this.viewTag;
     }
 
 }

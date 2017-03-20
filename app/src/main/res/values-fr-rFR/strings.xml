@@ -2,17 +2,17 @@
 <resources>
     <string name="app_name">Gestion de Mur d\'Ecran</string>
     <string name="hello_world">Bonjour le Monde!</string>
-    <string name="v_play">Video maintenant joue</string>
-    <string name="v_paused">Video est mis en pause</string>
-    <string name="v_stopped">Video est arrêté</string>
+    <string name="v_play"> maintenant joue</string>
+    <string name="v_paused"> est mis en pause</string>
+    <string name="v_stopped"> est arrêté</string>
     <string name="list_shuffled">Video liste est mis en ordre aléatoire</string>
     <string name="list_ordered">Video liste est mis en ordre</string>
-    <string name="v_selected">Video est sélectionné</string>
-    <string name="v_unselected">Video est desélectionné</string>
-    <string name="v_repaat">Video est mis en boucle</string>
+    <string name="v_selected"> est sélectionné</string>
+    <string name="v_unselected"> est desélectionné</string>
+    <string name="v_repaat"> est mis en boucle</string>
     <string name="v_repeat_not">Répétition est annulée pour video </string>
     <string name="v_next">Video prochain joue </string>
     <string name="v_previous">Video précédent est joue </string>
-    <string name="v_muted">Video est muet</string>
-    <string name="v_unmuted">Video a le son</string>
+    <string name="v_muted"> est muet</string>
+    <string name="v_unmuted"> a le son</string>
 </resources>

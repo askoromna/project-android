@@ -1,18 +1,18 @@
 <resources>
     <string name="app_name">ScreenWallMenager</string>
     <string name="hello_world">Hello World!</string>
-    <string name="v_play">Video is playing now</string>
-    <string name="v_paused">Video is paused now</string>
-    <string name="v_stopped">Video is stopped now</string>
+    <string name="v_play"> is playing now</string>
+    <string name="v_paused"> is paused now</string>
+    <string name="v_stopped"> is stopped now</string>
     <string name="list_shuffled">Video list is shuffled</string>
     <string name="list_ordered">Video list is ordered</string>
-    <string name="v_selected"> Video is selected</string>
-    <string name="v_unselected">Video is unselected</string>
-    <string name="v_repeat">Video is set to loop</string>
+    <string name="v_selected">  is selected</string>
+    <string name="v_unselected"> is unselected</string>
+    <string name="v_repeat"> is set to loop</string>
     <string name="v_repeat_not">Repeat is cancelled for video </string>
     <string name="v_next">Next video playing </string>
     <string name="v_previous">Previous video playing </string>
-    <string name="v_muted">Video is muted</string>
-    <string name="v_unmuted">Video has sound now</string>
+    <string name="v_muted"> is muted</string>
+    <string name="v_unmuted"> has sound now</string>
 
 </resources>

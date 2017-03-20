@@ -74,6 +74,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s12"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -101,6 +102,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s13"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -116,6 +118,7 @@
 
                 <LinearLayout
                     android:id="@+id/screen_14"
+                    android:tag="s14"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -164,6 +167,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s21"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -191,6 +195,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s22"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -218,6 +223,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s23"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -245,6 +251,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s24"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -281,6 +288,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s31"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -308,6 +316,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s32"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -335,6 +344,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s33"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -362,6 +372,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s34"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -398,6 +409,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s41"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -425,6 +437,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s42"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -452,6 +465,7 @@
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
                         android:onClick="select_picture"
+                        android:tag="s43"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
@@ -478,7 +492,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/MilkyWhite"
+                        android:longClickable="true"
                         android:onClick="select_picture"
+                        android:tag="s44"
                         app:srcCompat="@drawable/picture" />
 
                     <TextView
