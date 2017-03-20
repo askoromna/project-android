@@ -1,36 +1,50 @@
-package com.example.anna_.screenwallmenager.View;
-
-
-public class ManagerImpl implements Manager {
-
-
-
-
+//package com.example.anna_.screenwallmenager.View;
+//
+//
+//import android.os.Bundle;
+//import android.provider.MediaStore;
+//import android.util.Log;
+//import android.widget.Toast;
+//
+//import com.example.anna_.screenwallmenager.Model.Video;
+//
+//import org.json.JSONArray;
+//import org.json.JSONException;
+//import org.json.JSONObject;
+//
+//import static android.R.attr.button;
+//
+//public class ManagerImpl implements Manager {
+//
+//
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-////        setContentView(R.layout.activity_main);
+////        setContentView(R.layout.ManagerImpl);
 //        new GetButton().execute();
 //    }
 //
 //    protected void doInBackground(Void... arg0) {
-//        if (jsonStr != null) {
+//
 //            try {
+//
 //                JSONObject jsonObj = new JSONObject(button);
 //                JSONArray button = jsonObj.getJSONArray("button");
-//                for (int i = 0; i < contacts.length(); i++) {
+//                Video v = new Video();
+//                for (int i = 0; i < button.length(); i++) {
 //                    JSONObject b = button.getJSONObject(i);
-//                    String idv=b.getString.("idv");
+//                    v idv=b.getString("idv");
 //                    int mute =b.getInt("mute");
 //                    int volume=b.getInt("volume");
-//                    String ids=b.getString("ids");
-//                    Tab scenario=b.getString("scenario");
-//
-//                    JSONObject b = button.setJSONObject(i);
-//                    String idv=b.setString.("idv");
-//                    int mute =b.setInt("mute");
-//                    int volume=b.setInt("volume");
-//                    String ids=b.setString("ids");
-//                    Tab scenario=b.setString("scenario");
+//                    v.setID =  b.getString("ids");
+////                    Tab scenario=b.getString("scenario");
+////
+////                    //JSONObject b = button.setJSONObject(i);
+////                    jsonObj.put("idv",);
+////                    b.setString("idv");
+////                    int mute =b.setInt("mute");
+////                    int volume=b.setInt("volume");
+////                    String ids=b.setString("ids");
+////                    Tab scenario=b.setString("scenario");
 //                }
 //            } catch(final JSONException e) {
 //
@@ -44,5 +58,5 @@ public class ManagerImpl implements Manager {
 //                });
 //                return null;
 //            }
-//}}
-}
+//}
+//}

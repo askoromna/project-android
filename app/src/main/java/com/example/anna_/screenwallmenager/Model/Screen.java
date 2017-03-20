@@ -10,21 +10,23 @@ public class Screen  {
     private String resolution;
     private String orientation;
     private boolean tactile;
+    private boolean selected;
 
     public Screen (){
         this.ids = "";
         this.resolution = "1920x1080";
-        this.orientation = "portrait";
+        this.orientation = "landscape";
         this.tactile = false;
 
     }
 
     public Screen(String id, String resolution,String orientation,boolean tactile){
 
-        this.ids = ids;
+        this.ids = id;
         this.resolution= resolution;
         this.orientation =orientation;
         this.tactile= tactile;
+        this.selected = false;
 
     }
 

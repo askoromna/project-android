@@ -25,12 +25,23 @@ public class Video {
 
     boolean selected;
 
-    public Video(){
+    public Video(){ //just a little example for demo of behaviour of the app
+
+        this.idv = "video_1";
+        this.state="pause";
+        this.loop = 0;
+        this.mute = 0;
+        this.screen.add(new Screen("s11", "1920x1080", "landscape",  false ));
+        this.screen.add(new Screen("s12", "1920x1080", "landscape",  false));
+        this.screen.add(new Screen("s21", "1920x1080", "landscape",  false ));
+        this.screen.add(new Screen("s22", "1920x1080", "landscape",  false ));
+
     }
 
-    public Video(String idv,String file,int volume,int mute,double departure,String state,int loop,List<Screen> screen){
+    public Video(String idv, String file, int volume, int mute, double departure, String state,int loop, List<Screen> screen){
 
-        this.idv=idv; this.file=file;
+        this.idv=idv;
+        this.file=file;
         this.screen = screen;
         this.volume=volume;
         this.mute=mute;

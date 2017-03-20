@@ -2,6 +2,7 @@ package com.example.anna_.screenwallmenager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import com.example.anna_.screenwallmenager.Model.*;
 import  com.example.anna_.screenwallmenager.View.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,9 +27,20 @@ public class MainActivity extends AppCompatActivity {
 
     String IdAsString = "";
 
-    Video video = new Video();
+
+
 
     private ArrayAdapter<String> adapter;
+
+    //DEMO lists of screens for video_1, video_2, video_3
+    private List<Screen> screenList1 = new ArrayList<>();
+    private List<Screen> screenList2 = new ArrayList<>();
+    private List<Screen> screenList3 = new ArrayList<>();
+
+    Video video1 = new Video("v1", "file", 2, 0, 10.5, "pause", 0, screenList1);
+    Video video2 = new Video("v2", "file", 2, 0, 10.5, "pause", 0, screenList2);
+    Video video3 = new Video("v3", "file", 2, 0, 10.5, "pause", 0, screenList3);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +49,82 @@ public class MainActivity extends AppCompatActivity {
 
         createList();
 
+        fillScreenLists();
+        colorVideoBackground();
 
-        
     }
 
+
+    public void fillScreenLists(){  // demo function for showing the functionality of the app
+
+        /// for video_1 (left upper corner of the wall
+        screenList1.add(new Screen("s11", "1920x1080", "landscape",  false ));
+        screenList1.add(new Screen("s12", "1920x1080", "landscape",  false));
+        screenList1.add(new Screen("s21", "1920x1080", "landscape",  false ));
+        screenList1.add(new Screen("s22", "1920x1080", "landscape",  false ));
+
+        /// for video_2 (right upper corner of the wall
+        screenList2.add(new Screen("s13", "1920x1080", "landscape",  false ));
+        screenList2.add(new Screen("s14", "1920x1080", "landscape",  false));
+        screenList2.add(new Screen("s23", "1920x1080", "landscape",  false ));
+        screenList2.add(new Screen("s24", "1920x1080", "landscape",  false ));
+
+        /// for video_1 (left upper corner of the wall
+        screenList3.add(new Screen("s31", "1920x1080", "landscape",  false ));
+        screenList3.add(new Screen("s32", "1920x1080", "landscape",  false));
+        screenList3.add(new Screen("s41", "1920x1080", "landscape",  false ));
+        screenList3.add(new Screen("s42", "1920x1080", "landscape",  false ));
+        screenList3.add(new Screen("s33", "1920x1080", "landscape",  false ));
+        screenList3.add(new Screen("s34", "1920x1080", "landscape",  false));
+        screenList3.add(new Screen("s43", "1920x1080", "landscape",  false ));
+        screenList3.add(new Screen("s44", "1920x1080", "landscape",  false ));
+
+    }
+
+    public void colorVideoBackground(){
+        int view_id = 0, view_id_2 =0;
+        int color_id;
+        View v1, v2 ;
+        Random random = new Random();
+        int ran = random.nextInt(16) + 1 ;
+        for(Screen s: video1.getScreen()){
+            view_id = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
+            v1 = findViewById(view_id);
+            view_id_2 = getResources().getIdentifier("label_" + s.getIds(), "id", MainActivity.this.getPackageName());
+            v2 = findViewById(view_id_2);
+
+            color_id = getResources().getIdentifier("color_"+ran, "color", MainActivity.this.getPackageName());
+            v1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
+            v2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
+
+        }
+
+        ran = random.nextInt(16) + 1 ;
+        for(Screen s: video2.getScreen()){
+            view_id = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
+            v1 = findViewById(view_id);
+            view_id_2 = getResources().getIdentifier("label_" + s.getIds(), "id", MainActivity.this.getPackageName());
+            v2 = findViewById(view_id_2);
+
+            color_id = getResources().getIdentifier("color_"+ran, "color", MainActivity.this.getPackageName());
+            v1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
+            v2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
+
+        }
+
+        ran = random.nextInt(16) + 1 ;
+        for(Screen s: video3.getScreen()){
+            view_id = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
+            v1 = findViewById(view_id);
+            view_id_2 = getResources().getIdentifier("label_" + s.getIds(), "id", MainActivity.this.getPackageName());
+            v2 = findViewById(view_id_2);
+
+            color_id = getResources().getIdentifier("color_"+ran, "color", MainActivity.this.getPackageName());
+            v1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
+            v2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), color_id));
+
+        }
+    }
 
     public void createList (){
         ListView myListView = (ListView)findViewById(R.id.videoList);
@@ -58,7 +144,10 @@ public class MainActivity extends AppCompatActivity {
         ImageButton button = (ImageButton)v;
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
-        IdAsString = button.getResources().getResourceName(button.getId());
+
+        String tag = button.getTag().toString();
+//        IdAsString = button.getResources().getResourceName(button.getId());
+        IdAsString = tag;
         Toast toast = Toast.makeText(context, "", duration);
 
         if (picture_selected) {
