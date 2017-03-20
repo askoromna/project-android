@@ -93,7 +93,7 @@ public class Video {
 //    }
 
     // utiliser les bouton manager
-    Manager mng= new ManagerImpl();
+//    Manager mng= new ManagerImpl();
 
 
 
