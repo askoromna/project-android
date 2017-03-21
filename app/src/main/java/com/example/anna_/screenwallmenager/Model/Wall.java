@@ -24,7 +24,7 @@ public class Wall {
     public Screen getScreen(String id){
 
         for ( Screen s : matrix)
-            if(s.getIds() == id)
+            if(s.getIds().equals(id))
                 return s;
         return null;
     }

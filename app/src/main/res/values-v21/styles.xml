@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Orange" parent="android:Theme.DeviceDefault.Light">
-        <item name="android:colorPrimary">@color/ShinyOrange</item>
+        <item name="android:colorPrimary">@color/color_15</item>
         <item name="android:colorPrimaryDark">@color/WarmGray</item>
         <item name="android:colorAccent">@color/LightBlue</item>
         <item name="android:colorBackground">@color/MilkyWhite</item>

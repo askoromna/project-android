@@ -7,17 +7,17 @@ public class Scenario {
 
 
     private String name;
-    private ArrayList<String> video_list = new ArrayList<String>();
+    private ArrayList<Video> videoList = new ArrayList<>();
 
     //contructeur par default
     public Scenario(){}
 
     //contructeur avec parametres
 
-    public Scenario(String name,ArrayList<String> video_list){
+    public Scenario(String name,ArrayList<Video> video_list){
 
         this.name = name;
-        this.video_list= video_list;
+        this.videoList= video_list;
 
     }
 
@@ -25,9 +25,14 @@ public class Scenario {
         return name;
     }
 
-    public ArrayList<String> getVideo_list(){
+    public ArrayList<Video> getVideoList(){
 
-        return video_list;
+        return videoList;
+
+    }
+
+    //TODO: shuffle the PlayList (videoList)
+    public void shuffleVideoList(){
 
     }
 }

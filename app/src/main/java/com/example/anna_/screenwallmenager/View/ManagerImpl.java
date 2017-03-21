@@ -13,4 +13,8 @@ import static android.R.attr.button;
 
 public class ManagerImpl implements Manager {
 
+    //TODO: when the app opens load the available list from Scenario
+    public void createList(){
+
+    }
 }

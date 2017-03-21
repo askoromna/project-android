@@ -3,9 +3,12 @@ package com.example.anna_.screenwallmenager;
 import android.content.Context;
 import android.media.Image;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -36,24 +39,47 @@ public class MainActivity extends AppCompatActivity {
     private List<Screen> screenList1 = new ArrayList<>();
     private List<Screen> screenList2 = new ArrayList<>();
     private List<Screen> screenList3 = new ArrayList<>();
+    private List<Screen> screenList = new ArrayList<>();
 
+
+    // DEMO
     Video video1 = new Video("v1", "video_file_1.mp4", 2, 0, 10.5, "pause", 0, screenList1);
     Video video2 = new Video("v2", "video_file_2.mp4", 2, 0, 10.5, "pause", 0, screenList2);
     Video video3 = new Video("v3", "video_file_3.mp4", 2, 0, 10.5, "pause", 0, screenList3);
 
+
+    //list of ImageButtons to set the OnLongClick action on
+    int imButtonsIds [] = {R.id.s11, R.id.s12,R.id.s13,R.id.s14,R.id.s21,R.id.s22,R.id.s23,R.id.s24,
+            R.id.s31,R.id.s32,R.id.s33,R.id.s34,R.id.s41,R.id.s42,R.id.s43,R.id.s44};
+
+    Scenario scenario = new Scenario();
+    ManagerImpl manager = new ManagerImpl() ;
+    Video video = new Video();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        createList();
-        fillScreenLists();
-        colorVideoBackground();
+        createList();   //list of videos in profile OR scenario
+        fillScreenLists();  //lists of screens for every video
+        colorVideoBackground(); //sets background of picture, that represents one video
 
+        for (int id: imButtonsIds){
+            final ImageButton b11 = (ImageButton)findViewById(id);
+            b11.setLongClickable(true);
+            b11.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    select_screen(v);
+                    return true;
+                }
+            });
+        }
     }
 
 
+    //lists of screens for every video
     public void fillScreenLists(){  // demo function for showing the functionality of the app
 
         /// for video_1 (left upper corner of the wall
@@ -77,8 +103,15 @@ public class MainActivity extends AppCompatActivity {
         screenList3.add(new Screen("s34", "1920x1080", "landscape",  false));
         screenList3.add(new Screen("s43", "1920x1080", "landscape",  false ));
         screenList3.add(new Screen("s44", "1920x1080", "landscape",  false ));
+
+        screenList.addAll(screenList1);
+        screenList.addAll(screenList2);
+        screenList.addAll(screenList3);
+
     }
 
+
+    //sets background of picture, that represents one video
     public void colorVideoBackground(){
 
         for (int i=1; i<17; i++){
@@ -123,6 +156,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    //list of videos in profile OR scenario
     public void createList (){
         ListView myListView = (ListView)findViewById(R.id.videoList);
         ArrayList<String> myStringArray1 = new ArrayList<String>();
@@ -137,12 +172,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void select_picture (View v) {
+    //View behaviour for click action on ImageButton that represents a screen
+    public void select_screen (View v){
         ImageButton button = (ImageButton)findViewById(v.getId());
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
         Screen screen = new Screen();
-        Video video = new Video();
+        selectedPictureTag = (String)button.getTag();
+        Toast toast = Toast.makeText(context, "", duration);
+
+        for (Screen s: screenList){    //loops to search Screen and Video objects by selected picture
+            if (s.getIds().equals(selectedPictureTag)){
+                screen = s;
+            }
+        }
+
+        if(screen.getSelected()){
+            button.setImageResource(R.mipmap.picture);
+            screen.setSelected(false);
+            toast = Toast.makeText(context,  R.string.s_unselected, duration);
+        }
+        else if (!screen.getSelected()) {
+                button.setImageResource(R.mipmap.picture_selected);
+                screen.setSelected(true);
+            toast = Toast.makeText(context,  R.string.s_selected, duration);
+            }
+
+        toast.show();
+    }
+
+
+    //View behaviour for click action on ImageButton that represents a video
+    public void select_video (View v) {
+        ImageButton button = (ImageButton)findViewById(v.getId());
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Screen screen = new Screen();
+        Toast toast = Toast.makeText(context, "", duration);
         selectedPictureTag = (String)button.getTag();
 
         for (Screen s: screenList1){    //loops to search Screen and Video objects by selected picture
@@ -151,14 +217,12 @@ public class MainActivity extends AppCompatActivity {
                 video = video1;
             }
         }
-
         for (Screen s: screenList2){
             if (s.getIds().equals(selectedPictureTag)){
                 screen = s;
                 video = video2;
             }
         }
-
         for (Screen s: screenList3){
             if (s.getIds().equals(selectedPictureTag)){
                 screen = s;
@@ -166,21 +230,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Toast toast = Toast.makeText(context, "", duration);
-
         if (screen.getSelected()) {
-//            button.setImageResource(R.mipmap.picture);
             for (Screen s: video.getScreen()){
                 int id  = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
                 button = (ImageButton)findViewById(id);
                 button.setImageResource(R.mipmap.picture);
                 s.setSelected(false);
             }
-            toast = Toast.makeText(context, "Video "+ selectedPictureTag + R.string.v_unselected, duration);
+            toast = Toast.makeText(context,  R.string.v_unselected, duration);
         }
 
         else if (!screen.getSelected()) {
-//            button.setImageResource(R.mipmap.picture_selected);
             for (Screen s: video.getScreen()) {
                 int id  = getResources().getIdentifier(s.getIds(), "id", MainActivity.this.getPackageName());
                 button = (ImageButton)findViewById(id);
@@ -188,13 +248,13 @@ public class MainActivity extends AppCompatActivity {
                 s.setSelected(true);
 
             }
-            toast = Toast.makeText(context, "Video " + selectedPictureTag + R.string.v_selected, duration);
+            toast = Toast.makeText(context,  R.string.v_selected, duration);
         }
-
         toast.show();
     }
 
 
+    //Shuffles playlist of videos (
     public void shuffle(View v) {
         ImageButton button = (ImageButton)v;
         Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
@@ -211,41 +271,54 @@ public class MainActivity extends AppCompatActivity {
         }
 
         toast.show();
+
+        scenario.shuffleVideoList();
     }
 
 
     public void playClick(View v) {
         ImageButton button = (ImageButton)v;
         Toast toast = Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT);
-        if (paused) {
+        if (video.getState().equals("pause")) {
             button.setImageResource(R.drawable.pause_button_customized);
-            paused = false;
-            toast = Toast.makeText(getApplicationContext(), "Video "+ selectedPictureTag+ R.string.v_play, Toast.LENGTH_SHORT);
+
+            toast = Toast.makeText(getApplicationContext(),  R.string.v_play, Toast.LENGTH_SHORT);
+            video.setState("play");
+            video.play();
+
         }
 
-        else if (!paused) {
+        else if (video.getState().equals("play")) {
             button.setImageResource(R.drawable.play_button_customized);
-            paused = true;
-            toast = Toast.makeText(getApplicationContext(), "Video " + selectedPictureTag + R.string.v_paused, Toast.LENGTH_SHORT);
+
+            toast = Toast.makeText(getApplicationContext(),  R.string.v_paused, Toast.LENGTH_SHORT);
+            video.setState("pause");
+            video.pause();
         }
 
         toast.show();
+
     }
+
 
     public void repeat(View v) {
         ImageButton button = (ImageButton)v;
         Toast toast = Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT);;
 
-        if (repeat) {
+        if (video.getLoop()==1) {
             button.setImageResource(R.mipmap.repeat);
-            repeat = false;
-            toast = Toast.makeText(getApplicationContext(),  R.string.v_repeat_not + selectedPictureTag, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(),  R.string.v_repeat_not , Toast.LENGTH_SHORT);
+
+            video.setLoop(0);
+            video.repeate(false);
         }
 
-        else if (!repeat) {
+        else if (video.getLoop()==0) {
             button.setImageResource(R.mipmap.repeat_pressed);
-            repeat = true;
-            toast = Toast.makeText(getApplicationContext(),"Video" + selectedPictureTag+  R.string.v_repeat, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(),R.string.v_repeat, Toast.LENGTH_SHORT);
+
+            video.setLoop(1);
+            video.repeate(true);
         }
 
         toast.show();
@@ -256,39 +329,41 @@ public class MainActivity extends AppCompatActivity {
         ImageButton button = (ImageButton)v;
         Toast toast =Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT);
 
-        if (volume_off) {
+        if (video.getMute() == 1) {
             button.setImageResource(R.drawable.volume_button_customized);
-            volume_off = false;
-            toast = Toast.makeText(getApplicationContext(), "Video"+ selectedPictureTag+ R.string.v_unmuted, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(),  R.string.v_unmuted, Toast.LENGTH_SHORT);
+
+            video.setMute();
         }
-        else if (!volume_off) {
+        else if (video.getMute() ==0) {
             button.setImageResource(R.drawable.volume_off_button_customized);
-            volume_off = true;
-            toast = Toast.makeText(getApplicationContext(), "Video"+selectedPictureTag+ R.string.v_muted, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), R.string.v_muted, Toast.LENGTH_SHORT);
+
+            video.setMute();
         }
         toast.show();
     }
 
 
     public void stop(View v) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Video" + selectedPictureTag+  R.string.v_stopped, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(),  R.string.v_stopped, Toast.LENGTH_SHORT);
         toast.show();
+        video.stop();
     }
 
-    public void pause(View v) {
-        Toast toast = Toast.makeText(getApplicationContext(),  "Video" +selectedPictureTag + R.string.v_paused, Toast.LENGTH_SHORT);
-        toast.show();
-    }
 
     public void forward(View v) {
         Toast toast = Toast.makeText(getApplicationContext(),  R.string.v_next, Toast.LENGTH_SHORT);
         toast.show();
+        video.forward();
 
     }
 
     public void backward(View v) {
         Toast toast = Toast.makeText(getApplicationContext(), R.string.v_previous, Toast.LENGTH_SHORT);
         toast.show();
+
+        video.backward();
 
     }
 
